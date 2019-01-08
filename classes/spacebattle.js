@@ -49,9 +49,17 @@ for(i = 0; i < 6; i++){
   ship.generateShip();
   ships.push(ship);
 }
+alert(ships)
+
+function attack() {
+
+}
 
 const game = () => {
-  let start = prompt("Hello there");
+  var start = prompt("The USS Schwarzenegger is surrounded by enemies. While the enemy has 6 ships, their Starkian adherence to honor states that they can only attack one at a time. We must attack now to catch them off guard. Do you concur? Yes/No");
+  if(start == "yes" || "Yes"){
+    attack();
+  }
 }
 
 game();
