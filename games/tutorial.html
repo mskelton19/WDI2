@@ -50,13 +50,14 @@
         // move the circle this far every 10 milliseconds based on setInterval
         var dx = 2;
         var dy = -2;
+        var ballRadius = 10;
 
 
         function drawBall() {
           // starting canvas
           ctx.beginPath();
           // drawing circle
-          ctx.arc(x, y, 10, 0, Math.PI*2);
+          ctx.arc(x, y, ballRadius, 0, Math.PI*2);
           // color the circle
           ctx.fillStyle = "green";
           // fill with that color
@@ -69,6 +70,14 @@
           // drawing coordinate
           ctx.clearRect(0,0,canvas.width, canvas.height);
           drawBall();
+          // bouncing off walls
+          if(x + dx > canvas.width-ballRadius || x + dx < ballRadius){
+            dx = -dx;
+          }
+
+          if(y + dy > canvas.height-ballRadius || y + dy < ballRadius){
+            dy = -dy;
+          }
           // moving the circle
           x += dx;
           y += dy;
